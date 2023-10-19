@@ -42,7 +42,7 @@ namespace Assig2.Controllers
                 {
                     RegionId = r.RegionId,
                     RegionName = r.RegionName,
-                    ImageUrl = r.ImageUrl ?? String.Empty,
+                    ImageUrl = r.ImageUrl ?? "https://www.familysearch.org/en/wiki/img_auth.php/8/80/World_map_3.jpg",
                     CountryCount = r.Countries.Count()
                 }).ToListAsync();
 

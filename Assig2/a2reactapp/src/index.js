@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Region from './routes/Region';
 import Country from './routes/Country';
+import RegionList from './components/RegionList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

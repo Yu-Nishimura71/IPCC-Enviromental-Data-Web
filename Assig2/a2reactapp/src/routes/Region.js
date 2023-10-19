@@ -1,3 +1,5 @@
+import CardRegion from "../components/RegionList";
+
 const Region = ({ }) => { 
     return (
         <div>
@@ -5,6 +7,9 @@ const Region = ({ }) => {
                 Region Lists
             </h2>
             <hr />
+            <div className="row">
+                <CardRegion/>
+            </div>
         </div>
     )
 }

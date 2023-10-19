@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const CardRegoin1 = ({ regionId, regionName, imageUrl, countryCount }) => {
     return (
-        <div className="card mb-1 text-white">
+        <div className="card col-4 mb-1 text-white">
             <img className="card-img-top" src={imageUrl} alt={"Image of " + regionName} style={{ height: "200px" }} />
             <div className="card-img-overlay">
                 <h5 className="card-title" style={{ padding: "5px 10px", borderRadius: "5px" }}>{regionName}</h5>
