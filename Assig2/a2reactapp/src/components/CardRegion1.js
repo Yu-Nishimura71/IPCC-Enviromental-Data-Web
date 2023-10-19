@@ -1,15 +1,16 @@
+import { Link } from "react-router-dom";
 
 const CardRegoin1 = ({ regionId, regionName, imageUrl, countryCount }) => {
     return (
-        <div class="card mb-1 text-white">
-            <img class="card-img-top" src="" alt="Region image" style="object-fit: cover; height: 200px">
-            <div class="card-img-overlay">
-                <h5 class="card-title" style="padding: 5px 10px; border-radius: 5px;">@Html.DisplayFor(modelItem => item.RegionName)</h5>
+        <div className="card mb-1 text-white">
+            <img className="card-img-top" src={imageUrl} alt={"Image of " + regionName} style={{ height: "200px" }} />
+            <div className="card-img-overlay">
+                <h5 className="card-title" style={{ padding: "5px 10px", borderRadius: "5px" }}>{regionName}</h5>
             </div>
-            <div class="card-footer">
-                <ul class="nav nav-pills card-header-pills">
-                    <li class="nav-item">
-                        <a asp-action="Index" asp-controller="Countries" asp-route-RegionId="@item.RegionId" class="nav-link active">View Countries</a>
+            <div className="card-footer">
+                <ul className="nav nav-pills card-header-pills">
+                    <li className="nav-item">
+                        <Link to={"/Region/" + regionId}>View Countries</Link>
                     </li>
                 </ul>
             </div>
@@ -17,4 +18,4 @@ const CardRegoin1 = ({ regionId, regionName, imageUrl, countryCount }) => {
     )
 }
 
-export default CardRegoin1
+export default CardRegoin1;
