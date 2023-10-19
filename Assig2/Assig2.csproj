@@ -13,14 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="a2reactapp\src\routes\AirQualData.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="a2reactapp\src\routes\AirQualData.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
