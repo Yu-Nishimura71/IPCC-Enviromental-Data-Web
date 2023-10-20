@@ -42,7 +42,7 @@ namespace Assig2.Controllers
                 {
                     RegionId = r.RegionId,
                     RegionName = r.RegionName,
-                    ImageUrl = r.ImageUrl ?? "",
+                    ImageUrl = r.ImageUrl ?? String.Empty,
                     CountryCount = r.Countries.Count()
                 }).ToListAsync();
 

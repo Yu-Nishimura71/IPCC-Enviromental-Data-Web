@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CardRegion from "./CardRegion1";
+import CardRegion from "./RegionCard";
 
 function RegionList() {
 

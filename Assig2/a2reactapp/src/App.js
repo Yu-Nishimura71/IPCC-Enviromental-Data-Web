@@ -14,8 +14,8 @@ function App() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <Link className="nav-link active" to="/Region">Region</Link>
-                            <Link className="nav-link" to="/Country">Country</Link>
+                            <Link className="nav-link active" to="/Region">Regions</Link>
+                            <Link className="nav-link" to="/Country">Countries</Link>
                         </div>
                     </div>
                 </div>
