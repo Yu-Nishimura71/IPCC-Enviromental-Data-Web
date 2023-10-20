@@ -5,6 +5,9 @@ const Country = ({ }) => {
                 Country Lists
             </h2>
             <hr />
+            <div className="row">
+                <CarRegion />
+            </div>
         </div>
     )
 }

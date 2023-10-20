@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CardRegion from "./RegionCard";
+import RegionCard from "./RegionCard";
 
 function RegionList() {
 
@@ -17,7 +17,7 @@ function RegionList() {
     return (
         <div id="regionList" className="row">
             {cardData.map((obj) => (
-                <CardRegion
+                <RegionCard
                     key={obj.regionId}
                     regionId={obj.regionId}
                     regionName={obj.regionName}
