@@ -10,6 +10,7 @@ const CardRegoin1 = ({ regionId, regionName, imageUrl, countryCount }) => {
             <div className="card-footer">
                 <ul className="nav nav-pills card-header-pills">
                     <li className="nav-item">
+                        <p>{countryCount + "countries"}</p>
                         <Link to={"/Region/" + regionId}>View Countries</Link>
                     </li>
                 </ul>

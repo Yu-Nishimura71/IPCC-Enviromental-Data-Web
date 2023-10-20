@@ -1,3 +1,5 @@
+import CountryCard from "../components/CountryCard";
+
 const Country = ({ }) => {
     return (
         <div>
@@ -6,7 +8,7 @@ const Country = ({ }) => {
             </h2>
             <hr />
             <div className="row">
-                <CarRegion />
+                <CountryCard />
             </div>
         </div>
     )
