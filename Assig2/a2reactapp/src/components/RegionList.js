@@ -15,7 +15,7 @@ function RegionList() {
     });
 
     return (
-        <div id="cardList" className="row">
+        <div id="regionList" className="row">
             {cardData.map((obj) => (
                 <CardRegion
                     key={obj.regionId}
