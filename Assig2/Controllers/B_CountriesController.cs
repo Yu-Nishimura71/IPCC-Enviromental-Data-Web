@@ -105,23 +105,23 @@ namespace Assig2.Controllers
                         .AsQueryable();
 
             var regionalData = _context.TemperatureData
-    .Where(td2 => query.Any(q => q.Year == td2.Year && q.Country.Region != null &&
-            q.Country.Region.Countries.Select(c => c.CountryId).Contains(td2.CountryId))
-            )
-    .GroupBy(td2 => td2.Year)
-    .Select(group => new
-    {
-        Year = group.Key,
-        RegionalAvg = group.Select(td2 => td2.Value).DefaultIfEmpty().Average(),
-        RegionalMin = group.Select(td2 => td2.Value).DefaultIfEmpty().Min(),
-        RegionalMax = group.Select(td2 => td2.Value).DefaultIfEmpty().Max()
-    })
-    .ToDictionary(group => group.Year, group => new
-    {
-        RegionalAvg = group.RegionalAvg,
-        RegionalMin = group.RegionalMin,
-        RegionalMax = group.RegionalMax
-    });
+                .Where(td2 => query.Any(q => q.Year == td2.Year && q.Country.Region != null &&
+                        q.Country.Region.Countries.Select(c => c.CountryId).Contains(td2.CountryId))
+                        )
+                .GroupBy(td2 => td2.Year)
+                .Select(group => new
+                {
+                    Year = group.Key,
+                    RegionalAvg = group.Select(td2 => td2.Value).DefaultIfEmpty().Average(),
+                    RegionalMin = group.Select(td2 => td2.Value).DefaultIfEmpty().Min(),
+                    RegionalMax = group.Select(td2 => td2.Value).DefaultIfEmpty().Max()
+                })
+                .ToDictionary(group => group.Year, group => new
+                {
+                    RegionalAvg = group.RegionalAvg,
+                    RegionalMin = group.RegionalMin,
+                    RegionalMax = group.RegionalMax
+                });
 
             var result = query.Select(q => new TemperatureDataDetail
             {

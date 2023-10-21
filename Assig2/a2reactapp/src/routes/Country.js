@@ -1,4 +1,4 @@
-import CountryCard from "../components/CountryCard";
+import CountryList from "../components/CountryList";
 
 const Country = ({ }) => {
     return (
@@ -8,7 +8,7 @@ const Country = ({ }) => {
             </h2>
             <hr />
             <div className="row">
-                <CountryCard />
+                <CountryList />
             </div>
         </div>
     )

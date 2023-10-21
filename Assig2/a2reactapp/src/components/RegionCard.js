@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 
-const CardRegoin1 = ({ regionId, regionName, imageUrl, countryCount }) => {
+const RegionCard = ({ regionId, regionName, imageUrl, countryCount }) => {
     return (
-        <div className="card col-4 mb-1 text-white">
+        <div className="card col-4 mb-1">
             <img className="card-img-top" src={imageUrl} alt={"Image of " + regionName} style={{ height: "200px" }} />
             <div className="card-img-overlay">
-                <h5 className="card-title" style={{ padding: "5px 10px", borderRadius: "5px" }}>{regionName}</h5>
+                <h5 className="card-title text-white" style={{ padding: "5px 10px", borderRadius: "5px" }}>{regionName}</h5>
+            </div>
+            <div className="card-body">
+                <Link className="btn btn-primary" to={}>View Countries</Link>
             </div>
             <div className="card-footer">
                 <ul className="nav nav-pills card-header-pills">
                     <li className="nav-item">
                         <p>{countryCount + "countries"}</p>
-                        <Link to={"/Region/" + regionId}>View Countries</Link>
+                        <p>{regionId}</p>
                     </li>
                 </ul>
             </div>
@@ -19,4 +22,4 @@ const CardRegoin1 = ({ regionId, regionName, imageUrl, countryCount }) => {
     )
 }
 
-export default CardRegoin1;
+export default RegionCard;
