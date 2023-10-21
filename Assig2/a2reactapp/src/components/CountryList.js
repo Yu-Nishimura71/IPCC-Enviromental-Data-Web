@@ -8,9 +8,10 @@ function CountryList() {
 
     const [cardData, setState] = useState({countryList:[]});
     const [regionId, setRegionId] = useState(params.regionId);
+    const [query, setQuery] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5256/api/B_Countries/CountryList/${regionId}`)
+        fetch(`http://localhost:5256/api/B_Countries/CountryList/${regionId}?${query}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -19,7 +20,13 @@ function CountryList() {
             .catch(err => {
                 console.log(err);
             });
-    }, [regionId]);
+    }, [regionId, query]);
+
+    function searchQuery(evt) {
+        const value = document.querySelector('[name = "searchText"]').value;
+        alert('value' + value);
+        setQuery(value);
+    }
 
     return (
         <div id="countryList" className="row">
