@@ -6,13 +6,16 @@ function CountryList() {
 
     let params = useParams();
 
-    const [cardData, setState] = useState({ countryList:[]});
+    const [cardData, setState] = useState({countryList:[]});
     const [regionId, setRegionId] = useState(params.regionId);
 
     useEffect(() => {
         fetch(`http://localhost:5256/api/B_Countries/CountryList/${regionId}`)
             .then(response => response.json())
-            .then(data => setState(data))
+            .then(data => {
+                console.log(data);
+                setState(data);
+            })
             .catch(err => {
                 console.log(err);
             });
@@ -20,7 +23,7 @@ function CountryList() {
 
     return (
         <div id="countryList" className="row">
-            {cardData.countryList.map(country => (
+            {cardData.countryList && cardData.countryList.map(country => (
                 <CountryCard
                     key={country.countryId}
                     countryId={country.countryId}

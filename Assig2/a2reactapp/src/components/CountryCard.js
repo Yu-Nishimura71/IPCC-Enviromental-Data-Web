@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Country from "../routes/Country";
 
 const CountryCard = ({ countryId, regionId, countryName, iso3, imageUrl,cityCount }) => {
     return (
