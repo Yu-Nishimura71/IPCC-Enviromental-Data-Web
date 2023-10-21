@@ -29,18 +29,28 @@ function CountryList() {
     }
 
     return (
-        <div id="countryList" className="row">
-            {cardData.countryList && cardData.countryList.map(country => (
-                <CountryCard
-                    key={country.countryId}
-                    countryId={country.countryId}
-                    regionId={country.regionId}
-                    countryName={country.countryName}
-                    iso3={country.iso3}
-                    imageUrl={country.imageUrl}
-                    cityCount={country.cityCount}
-                />
-            ))}
+        <div id="countyListSearch">
+            <div className="row justify-content-start mb-3">
+                <div className="col-3">
+                    <input type="text" name="searchText" className="form-control" placeholder="Type your query"/>
+                </div>
+                <div className="col text-left">
+                    <button type="button" className="btn btn-primary" onClick={searchQuery}>Search</button>
+                </div>
+            </div>
+            <div id="countryList" className="row">
+                {cardData.countryList && cardData.countryList.map(country => (
+                    <CountryCard
+                        key={country.countryId}
+                        countryId={country.countryId}
+                        regionId={country.regionId}
+                        countryName={country.countryName}
+                        iso3={country.iso3}
+                        imageUrl={country.imageUrl}
+                        cityCount={country.cityCount}
+                    />
+                ))}
+            </div>
         </div>
     )
 }
