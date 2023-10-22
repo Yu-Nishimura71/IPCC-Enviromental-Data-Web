@@ -15,18 +15,20 @@ function RegionList() {
     });
 
     return (
-        <div id="regionList" className="row">
-            {cardData.map((obj) => (
-                <RegionCard
-                    key={obj.regionId}
-                    regionId={obj.regionId}
-                    regionName={obj.regionName}
-                    imageUrl={obj.imageUrl}
-                    countryCount={obj.countryCount}
-                />
-            )
-            )
-            }
+        <div className="container" id="regionList">
+            <div className="row">
+                {cardData.map((obj) => (
+                    <RegionCard
+                        key={obj.regionId}
+                        regionId={obj.regionId}
+                        regionName={obj.regionName}
+                        imageUrl={obj.imageUrl}
+                        countryCount={obj.countryCount}
+                    />
+                )
+                )
+                }
+            </div>
         </div>
     )
 }
