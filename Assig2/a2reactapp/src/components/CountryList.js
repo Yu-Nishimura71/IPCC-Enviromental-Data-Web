@@ -25,7 +25,7 @@ function CountryList() {
     function searchQuery(evt) {
         const value = document.querySelector('[name = "searchText"]').value;
         alert('value' + value);
-        setQuery(value);
+        setQuery(`searchText=${value}`);
     }
 
     return (
