@@ -5,7 +5,7 @@ import { Link, Outlet } from "react-router-dom";
 
 function App() {
     return (
-        <div className="App container">
+        <div className="App container-fluid">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">Assig2</Link>
