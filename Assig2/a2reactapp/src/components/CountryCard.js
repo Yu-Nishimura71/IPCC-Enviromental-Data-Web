@@ -9,7 +9,7 @@ const CountryCard = ({ countryId, regionId, countryName, iso3, imageUrl, cityCou
                 <h5 className="card-title" style={{ padding: "5px 10px", borderRadius: "5px" }}>{countryName} ({iso3})</h5>
                 <div className="card-footer">
                     <p>{cityCount + " cities"}</p>
-                    <Link to={"CountryTemperatureDetail/" + countryId}>
+                    <Link to={"/CountryTemperatureDetail/" + countryId}>
                         <img src={TempIcon} className="App-logo" alt="Temperature Icon" style={{ height: "30px", weight: "30px" }} />
                     </Link>
                 </div>

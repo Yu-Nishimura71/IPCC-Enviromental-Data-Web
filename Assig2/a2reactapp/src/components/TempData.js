@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import TempCard from "./components/TempCard";
 
 function TempData() {
 
@@ -19,7 +20,11 @@ function TempData() {
 
     return (
         <div>
-            
+            <TempCard
+                maxYear={tempData.maxYear}
+                minYear={tempData.minYear}
+                rawData={rawData} 
+            />
         </div>
     )
 }
