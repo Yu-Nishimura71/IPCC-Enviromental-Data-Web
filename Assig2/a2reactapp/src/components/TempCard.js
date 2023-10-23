@@ -5,11 +5,10 @@ const TempCard = ({ maxYear, minYear, rawTemperatureData = [] }) => {
                 Temperature Data from {minYear} to{maxYear}
             </div>
             <div className="card-body">
-                <table>
+                <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>Year</th>
-                            <th>Country Name</th>
                             <th>Unit</th>
                             <th>Change</th>
                             <th>Value</th>
@@ -19,7 +18,7 @@ const TempCard = ({ maxYear, minYear, rawTemperatureData = [] }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {rawTemperatureData && rawTemperatureData.map((data, index) => (
+                        {rawTemperatureData.map((data, index) => (
                             <tr key={index}>
                                 <td>{data.theCountryTempData.year}</td>
                                 <td>{data.theCountryTempData.unit}</td>
