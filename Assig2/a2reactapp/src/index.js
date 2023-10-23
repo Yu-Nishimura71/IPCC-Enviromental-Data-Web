@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Region from './routes/Region';
 import Country from './routes/Country';
+import TempData from './components/TempData';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,8 +15,8 @@ root.render(
             <Routes>
                 <Route path="/" element={<App />}>
                     <Route path="Region" element={<Region />} />
-                    <Route path="/Country/:regionId" element={<Country />} />
-                    <Route path="/Country:regionId" element={<Country /> } />
+                    <Route path="Country/:regionId" element={<Country />} />
+                    <Route path="CountryTemp/:countryId" element={<TempData/>} />
                     <Route path="" element={<Region />} />
                     <Route path="*" element={<Region />} />
                 </Route>
