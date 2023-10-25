@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
+
 const TempCard = ({ maxYear, minYear, rawTemperatureData = [] }) => {
     return (
         <div className="card">
-            <div className="card-header">
-                Temperature Data from {minYear} to{maxYear}
-            </div>
+            <Link to="/Country/">Country List</Link>
+            <h2 className="card-header">
+                Temperature Data from {minYear} to {maxYear}
+            </h2>
             <div className="card-body">
                 <table className="table table-striped">
                     <thead>
