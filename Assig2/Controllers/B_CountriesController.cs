@@ -209,11 +209,16 @@ namespace Assig2.Controllers
 
             var query = await _context.CountryEmissions
                 .Where(ce => ce.CountryId == countryId && ce.ElementId == elementId)
-                .Select(ce => new
+                .GroupBy(ce => new
                 {
                     ce.Year,
-                    ce.ItemElement.Item.ItemName,
-                    ce.Value,
+                    ce.ItemElement.Item.ItemName
+                })
+                .Select(grp => new
+                {
+                    grp.Key.Year,
+                    grp.Key.ItemName,
+                    Value = grp.Sum(ce => ce.Value) // NB: "Value" is now "Total Value"
                 })
                 .OrderBy(ce => ce.Year)
                 .ThenBy(ce => ce.ItemName)
