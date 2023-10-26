@@ -1,5 +1,5 @@
 
-const EmiCard = ({ }) => {
+const EmiCard = ({ emiData = [], emiEleData = [] }) => {
 
 }
 
