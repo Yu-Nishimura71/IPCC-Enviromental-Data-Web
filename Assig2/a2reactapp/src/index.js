@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Region from './routes/Region';
 import Country from './routes/Country';
 import TempData from './components/TempData';
+import EmiData from './components/EmiData';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,7 @@ root.render(
                     <Route path="Region" element={<Region />} />
                     <Route path="Country/:regionId" element={<Country />} />
                     <Route path="CountryTemp/:countryId" element={<TempData />} />
-                    <Route path="CountryEmi/:countryId" element={</> }/> 
+                    <Route path="CountryEmi/:countryId" element={<EmiData />} /> 
                     <Route path="" element={<Region />} />
                     <Route path="*" element={<Region />} />
                 </Route>
