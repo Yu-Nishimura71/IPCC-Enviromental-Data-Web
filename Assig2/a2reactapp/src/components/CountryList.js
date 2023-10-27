@@ -54,6 +54,8 @@ function CountryList() {
                         iso3={country.iso3}
                         imageUrl={country.imageUrl}
                         cityCount={country.cityCount}
+                        emissionDataYearRange={country.emissionDataYearRange}
+                        temperatureDataYearRange={country.temperatureDataYearRange}
                     />
                 ))}
             </div>

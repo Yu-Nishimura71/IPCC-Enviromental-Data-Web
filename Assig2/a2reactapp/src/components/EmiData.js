@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import EmiCard from "./EmiCard";
+
 
 function EmiData() {
 
@@ -30,6 +32,10 @@ function EmiData() {
 
     return (
         <div>
+            <EmiCard
+                emiData={emiData}
+                emiEleData={emiEleData}
+            />
         </div>
     )
 }
