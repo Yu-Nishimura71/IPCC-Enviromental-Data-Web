@@ -33,6 +33,7 @@ function CountryList() {
 
     return (
         <div id="countyListSearch">
+            <img src={regionData.imageUrl} alt="Region Image" style={{ height: "480px" }} />
             <h5>
                 Region: {regionData.regionName ? regionData.regionName : 'Loading...'}
             </h5>
@@ -45,19 +46,25 @@ function CountryList() {
                 </div>
             </div>
             <div id="countryList" className="row">
-                {countryData.countryList.map(country => (
-                    <CountryCard
-                        key={country.countryId}
-                        countryId={country.countryId}
-                        regionId={country.regionId}
-                        countryName={country.countryName}
-                        iso3={country.iso3}
-                        imageUrl={country.imageUrl}
-                        cityCount={country.cityCount}
-                        emissionDataYearRange={country.emissionDataYearRange}
-                        temperatureDataYearRange={country.temperatureDataYearRange}
-                    />
-                ))}
+                {countryData.countryList.length > 0 ? (
+                    countryData.countryList.map(country => (
+                        <CountryCard
+                            key={country.countryId}
+                            countryId={country.countryId}
+                            regionId={country.regionId}
+                            countryName={country.countryName}
+                            iso3={country.iso3}
+                            imageUrl={country.imageUrl}
+                            cityCount={country.cityCount}
+                            emissionDataYearRange={country.emissionDataYearRange}
+                            temperatureDataYearRange={country.temperatureDataYearRange}
+                        />
+                    ))
+                ) : (
+                        <div className="col-12">
+                            <p>No countries found for the given name.</p>
+                        </div>
+                )}
             </div>
         </div>
     )
