@@ -10,18 +10,26 @@ function CountryList() {
     const [regionData, setRegion] = useState({ theRegion: {} });
     const [regionId, setRegionId] = useState(params.regionId);
     const [query, setQuery] = useState('');
+    const [errMessage, setErrMessage] = useState('');
 
     useEffect(() => {
         fetch(`http://localhost:5256/api/B_Countries/CountryList/${regionId}?${query}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Data not found or invalid input')
+                }
+                return response.json();
+            })
             .then(data => {
                 console.log("data:" , data);
                 setCountry(data);
                 setRegion(data.theRegion);
-                console.log("Region data" , data.theRegion);
+                console.log("Region data", data.theRegion);
+                setErrMessage('');
             })
             .catch(err => {
                 console.log(err);
+                setErrMessage('Data not found or invalid input')
             });
     }, [regionId, query]);
 
@@ -33,6 +41,11 @@ function CountryList() {
 
     return (
         <div id="countyListSearch">
+            {errMessage && (
+                <div className="alert alert-danger" role="alert">
+                    {errMessage}
+                </div>
+            )}
             <img src={regionData.imageUrl} alt="Region Image" style={{ height: "480px" }} />
             <h5>
                 Region: {regionData.regionName ? regionData.regionName : 'Loading...'}
