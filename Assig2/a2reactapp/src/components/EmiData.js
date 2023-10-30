@@ -11,6 +11,8 @@ function EmiData() {
     const [emiEleData, setEmiEleData] = useState([]);
     const [countryId, setCountryId] = useState(params.countryId);
     const [elementId, setElementId] = useState('');
+    const [element, setElement] = useState([]);
+    const selectedElement = element.find(el => el.elementId === parseInt(elementId.replace('elementId=', '')));
 
     useEffect(() => {
         fetch(`http://localhost:5256/api/B_Countries/SummaryCountryEmissionData/${countryId}`)
@@ -39,6 +41,15 @@ function EmiData() {
         }
     }, [countryId, elementId])
 
+    useEffect(() => {
+        fetch(`http://localhost:5256/api/B_Countries/GetElementList`)
+            .then(response => response.json())
+            .then(data => setElement(data))
+            .catch(err => {
+                console.log(err);
+            })
+    })
+
     function searchQuery(evt) {
         const value = document.querySelector('[name = "elementId"]').value;
         setElementId(`elementId=${value}`);
@@ -54,9 +65,18 @@ function EmiData() {
                     <button type="button" className="btn btn-primary" onClick={searchQuery}>Search</button>
                 </div>
             </div>
+            {selectedElement && (
+                <div>
+                    <h4>{elementId} | {selectedElement.elementName}</h4>
+                    <p>Unit: {selectedElement.unit}</p>
+                    {selectedElement.imageUrl && <img src={selectedElement.imageUrl} alt={selectedElement.elementName} />}
+                </div>
+            )}
             <EmiCard
                 emiData={emiData}
                 emiEleData={emiEleData}
+                elementData={element}
+                selectElement={selectedElement}
             />
         </div>
     )
