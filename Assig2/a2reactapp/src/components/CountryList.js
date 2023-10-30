@@ -9,11 +9,11 @@ function CountryList() {
     const [countryData, setCountry] = useState({ countryList: [] });
     const [regionData, setRegion] = useState({ theRegion: {} });
     const [regionId, setRegionId] = useState(params.regionId);
-    const [query, setQuery] = useState('');
+    const [searchText, setSearchText] = useState('');
     const [errMessage, setErrMessage] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5256/api/B_Countries/CountryList/${regionId}?${query}`)
+        fetch(`http://localhost:5256/api/B_Countries/CountryList/${regionId}?${searchText}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Data not found or invalid input')
@@ -31,12 +31,12 @@ function CountryList() {
                 console.log(err);
                 setErrMessage('Data not found or invalid input')
             });
-    }, [regionId, query]);
+    }, [regionId, searchText]);
 
     function searchQuery(evt) {
         const value = document.querySelector('[name = "searchText"]').value;
 
-        setQuery(`searchText=${value}`);
+        setSearchText(`searchText=${value}`);
     }
 
     return (
