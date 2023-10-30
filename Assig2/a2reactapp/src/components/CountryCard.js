@@ -15,7 +15,15 @@ const CountryCard = ({ countryId, regionId, countryName, iso3, imageUrl, cityCou
                 )}
                 
                 <div className="card-footer row">
-                    <p className="col">{cityCount + " cities"}</p>
+
+                    {cityCount === 0 ? (
+                        <p className="col">{cityCount + " cities"}</p>
+                    ) : (
+                            <Link to={"/City/" + countryId} className="col">
+                                <p>{cityCount + " cities"}</p>
+                            </Link>
+                    )}
+                    
 
                     {temperatureDataYearRange[0] === 0 && temperatureDataYearRange[1] === 0 ? (
                         <img src={XIcon} className="App-logo col" alt="No Temperature Data" style={{ height: "30px", weight: "30px" }} />

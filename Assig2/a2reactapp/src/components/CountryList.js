@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CountryCard from "./CountryCard";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function CountryList() {
 
@@ -40,7 +40,7 @@ function CountryList() {
     }
 
     return (
-        <div id="countyListSearch">
+        <div>
             {errMessage && (
                 <div className="alert alert-danger" role="alert">
                     {errMessage}
@@ -51,11 +51,14 @@ function CountryList() {
                 Region: {regionData.regionName ? regionData.regionName : 'Loading...'}
             </h5>
             <div className="row justify-content-start mb-3">
-                <div className="col-3">
+                <div className="col-4">
                     <input type="text" name="searchText" className="form-control" placeholder="Type your query"/>
                 </div>
-                <div className="col text-left">
+                <div className="col-2 text-left">
                     <button type="button" className="btn btn-primary" onClick={searchQuery}>Search</button>
+                </div>
+                <div className="col-2">
+                    <Link to="/Region">Back to Region List</Link>
                 </div>
             </div>
             <div id="countryList" className="row">

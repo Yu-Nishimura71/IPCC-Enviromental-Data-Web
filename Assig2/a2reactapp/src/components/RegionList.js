@@ -15,7 +15,7 @@ function RegionList() {
     });
 
     return (
-        <div className="container" id="regionList">
+        <div className="container">
             <div className="row">
                 {cardData.map((obj) => (
                     <RegionCard
