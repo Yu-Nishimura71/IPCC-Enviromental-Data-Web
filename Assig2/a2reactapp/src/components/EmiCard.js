@@ -31,13 +31,18 @@ const EmiCard = ({ emiData =[], emiEleData =[], selectElement }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {emiEleData.map((data, index) => (
-                            <tr key={index}>
-                                <td>{data.year}</td>
-                                <td>{data.itemName}</td>
-                                <td>{data.value}</td>
-                            </tr>
-                        ))}
+                        {emiEleData.length > 0 ? (
+                            emiEleData.map((data, index) => (
+                                <tr key={index}>
+                                    <td>{data.year}</td>
+                                    <td>{data.itemName}</td>
+                                    <td>{data.value}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <p className="text-center">No elements emission data found for the given element.</p>
+                        )}
+                        
                     </tbody>
                 </table>
             </div>
