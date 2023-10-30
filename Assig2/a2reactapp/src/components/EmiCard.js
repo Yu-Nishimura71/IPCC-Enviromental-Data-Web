@@ -1,10 +1,6 @@
-import { Link } from "react-router-dom";
-
 const EmiCard = ({ emiData =[], emiEleData =[], selectElement }) => {
     return(
         <div className="card">
-            <Link to="/Country">Country List</Link>
-
             <div className="card-body">
                 <h4>Emission Data</h4>
                 <table className="table table-striped">
@@ -25,7 +21,7 @@ const EmiCard = ({ emiData =[], emiEleData =[], selectElement }) => {
                         ))}
                     </tbody>
                 </table>
-                <h4>{selectElement.elementName} emission data</h4>
+                <h4>Specific element emission data</h4>
                 <table className="table table-striped">
                     <thead>
                         <tr>
