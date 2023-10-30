@@ -27,6 +27,7 @@ function EmiData() {
     useEffect(() => {
         if (elementId === '') {
             console.log("elementId not provided. Fetching SummaryCountryEmissionData.");
+            console.log(elementId);
         }
         else {
             fetch(`http://localhost:5256/api/B_Countries/CountryEmissionData/${countryId}?${elementId}`)
@@ -39,7 +40,7 @@ function EmiData() {
     }, [countryId, elementId])
 
     function searchQuery(evt) {
-        const value = document.querySelector('[name = "searchText"]').value;
+        const value = document.querySelector('[name = "elementId"]').value;
         setElementId(`elementId=${value}`);
     }
 
@@ -47,7 +48,7 @@ function EmiData() {
         <div>
             <div className="row justify-content-start mb-3">
                 <div className="col-3">
-                    <input type="text" name="searchText" className="form-control" placeholder="Type elementId" />
+                    <input type="text" name="elementId" className="form-control" placeholder="Type elementId" />
                 </div>
                 <div className="col text-left">
                     <button type="button" className="btn btn-primary" onClick={searchQuery}>Search</button>

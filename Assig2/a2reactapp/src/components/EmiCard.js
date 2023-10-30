@@ -24,6 +24,24 @@ const EmiCard = ({ emiData = [], emiEleData = [] }) => {
                         ))}
                     </tbody>
                 </table>
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Element</th>
+                            <th>TotalValue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {emiEleData.map((data, index) => (
+                            <tr key={index}>
+                                <td>{data.year}</td>
+                                <td>{data.itemName}</td>
+                                <td>{data.value}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     )
