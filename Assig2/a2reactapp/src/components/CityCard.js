@@ -1,5 +1,5 @@
 
-const CityCard = ({ }) => {
+const CityCard = ({cityData}) => {
     return (
         <p>City</p>
     )

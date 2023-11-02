@@ -52,7 +52,7 @@ function CountryList() {
             </h5>
             <div className="row justify-content-start mb-3">
                 <div className="col-4">
-                    <input type="text" name="searchText" className="form-control" placeholder="Type your query"/>
+                    <input type="text" name="searchText" className="form-control" placeholder="Search Country"/>
                 </div>
                 <div className="col-2 text-left">
                     <button type="button" className="btn btn-primary" onClick={searchQuery}>Search</button>
@@ -61,7 +61,7 @@ function CountryList() {
                     <Link to="/Region">Back to Region List</Link>
                 </div>
             </div>
-            <div id="countryList" className="row">
+            <div className="row">
                 {countryData.countryList.length > 0 ? (
                     countryData.countryList.map(country => (
                         <CountryCard

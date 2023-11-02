@@ -1,24 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CityCard from "./CityCard";
 
 function CityList() {
 
     let params = useParams()
 
-    const [countryId, setCountryData] = useState(params.countryId);
+    const [cityData, setCityData] = useState({});
+    const [countryId, setCountryId] = useState(params.countryId);
     const [searchText, setSearchText] = useState('');
-
-
+    
     useEffect(() => {
         fetch(`http://localhost:5256/api/C_Cities/${countryId}?${searchText}`)
             .then(response => response.json())
-            .then(data => setCountryData(data))
+            .then(data => setCityData(data))
             .catch(err => {
                 console.log(err);
             });
     }, [countryId, searchText]);
 
+    function searchQuery(evt) {
+        const value = document.querySelector('[name = "searchText"]').value;
+        setSearchText(`searchText=${value}`);
+    }
 
+    return (
+        <div>
+            <div className="row justify-content-start mb-3">
+                <div className="col-4">
+                    <input type="text" name="searchText" className="form-control" placeholder="Search City"/>
+                </div>
+                <div className="col-3">
+                    <button type="button" className="btn btn-primary" onClick={searchQuery}>Search</button>
+                </div>
+            </div>
+            <CityCard
+                cityData={cityData}
+            />
+        </div>
+    )
 }
 
 export default CityList
