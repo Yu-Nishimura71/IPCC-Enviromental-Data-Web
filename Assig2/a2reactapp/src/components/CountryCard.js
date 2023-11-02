@@ -9,7 +9,7 @@ const CountryCard = ({ countryId, regionId, countryName, iso3, imageUrl, cityCou
             <div className="card container">
                 <img className="card-img-top" src={imageUrl} alt={"Image of " + countryName} style={{ height: "200px" }} />
                 {/*===/==*/}
-                {iso3 === ? (
+                {iso3 === "" ? (
                     <h5 className="card-title" style={{ padding: "5px 10px", borderRadius: "5px" }}>{countryName}</h5>
                 ): (
                     <h5 className = "card-title" style = {{ padding: "5px 10px", borderRadius: "5px" }}>{countryName} ({iso3})</h5>
