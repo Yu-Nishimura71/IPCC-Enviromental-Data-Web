@@ -1,3 +1,5 @@
+import CityList from "../components/CityList"
+
 const City = ({ }) => {
     return (
         <div>
@@ -5,6 +7,7 @@ const City = ({ }) => {
                 City Lists
             </h2>
             <hr />
+            <CityList/>
         </div>
     )
 }

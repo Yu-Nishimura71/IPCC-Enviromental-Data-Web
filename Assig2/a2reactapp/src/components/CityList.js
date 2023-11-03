@@ -6,7 +6,7 @@ function CityList() {
 
     let params = useParams()
 
-    const [cityData, setCityData] = useState({});
+    const [cityData, setCityData] = useState([]);
     const [countryId, setCountryId] = useState(params.countryId);
     const [searchText, setSearchText] = useState('');
     
@@ -34,9 +34,11 @@ function CityList() {
                     <button type="button" className="btn btn-primary" onClick={searchQuery}>Search</button>
                 </div>
             </div>
-            <CityCard
-                cityData={cityData}
-            />
+            <div>
+                <CityCard
+                    cityData={cityData}
+                />
+            </div>
         </div>
     )
 }
