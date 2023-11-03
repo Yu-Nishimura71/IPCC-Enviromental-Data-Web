@@ -6,18 +6,29 @@ const AirQualCard = ({ cityData, airData }) => {
     }
     return (
         <div className="card">
-            <div className="row"> {/* Removed the centering class */}
-                <div className="col-3"> {/* This will size the image container to col-4 */}
-                    {/* Use Bootstrap's img-fluid class to make the image responsive within the col-4 div */}
+            <div className="row">
+                <div className="col-3"> 
                     <img className="card-img img-fluid" src={cityData.imageUrl} alt={cityData.cityName} style={{ height: "200px" }} />
                 </div>
+                <div className="col-9">
+                    <h1>{cityData.cityName}</h1>
+                    {cityData.iso3 === "" ? (
+                        <h6 className="" style={{ padding: "5px 10px", borderRadius: "5px" }}>{cityData.countryName}</h6>
+                    ) : (
+                        <h6 className="" style={{ padding: "5px 10px", borderRadius: "5px" }}>{cityData.countryName} ({cityData.iso3})</h6>
+                    )}
+                    <p>{cityData.regionName}</p>
+                    <table className="table table-striped">
+                        <thead>
+                            <th>Avg</th>
+                            <th>Max</th>
+                            <th>Min</th>
+                        </thead>
+                    </table>
+                </div>
+                
             </div>
-            <div className="card-title">{cityData.cityName}</div>
-            {cityData.iso3 === "" ? (
-                <h6 className="" style={{ padding: "5px 10px", borderRadius: "5px" }}>{cityData.countryName}</h6>
-            ) : (
-                    <h6 className="" style={{ padding: "5px 10px", borderRadius: "5px" }}>{cityData.countryName} ({cityData.iso3})</h6>
-            )}
+            
             <div className="card-body">
                 <table className="table table-striped">
                     <thead>
@@ -31,7 +42,6 @@ const AirQualCard = ({ cityData, airData }) => {
                             <th>Annual Mean PM2.5</th>
                             <th>Reference</th>
                             <th>Station Type</th>
-                            <th>Station Number</th>
                         </tr>
                     </thead>
                     <tbody>
