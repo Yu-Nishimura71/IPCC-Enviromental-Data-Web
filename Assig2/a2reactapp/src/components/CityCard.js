@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const CityCard = ({cityData}) => {
     return (
@@ -15,7 +16,7 @@ const CityCard = ({cityData}) => {
                         {cityData.map((data, index) => (
                             <tr key={index}>
                                 <td>{data.cityName}</td>
-                                <td>{data.airQualityYearRange[0]} ~ {data.airQualityYearRange[1]}</td>
+                                <td>{data.airQualityYearRange[0]} - {data.airQualityYearRange[1]}</td>
                                 <td>{data.recordCount}</td>
                             </tr>
                         ))}
