@@ -15,12 +15,19 @@ function AirQualData() {
             .then(response => response.json())
             .then(data => {
                 setCityData(data.theCityDetail)
-                setAirData(data.theCityAirQualityData)
+
+                if (Array.isArray(data.theCityAirQualityData)) {
+                    setAirData(data.theCityAirQualityData)
+                } else {
+                    console.error('Data fetched is not an array:', data.theCityAirQualityData);
+                    setAirData([]);
+                }
+                
             })
             .catch(err => {
                 console.log(err);
             });
-    });
+    }, [cityID]);
 
     return (
         <div>
