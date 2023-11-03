@@ -35,9 +35,13 @@ function CityList() {
                 </div>
             </div>
             <div>
-                <CityCard
-                    cityData={cityData}
-                />
+                {cityData.length > 0 ? (
+                    <CityCard
+                        cityData={cityData}
+                    />
+                ) : (
+                    <h6>No countries found for the given name.</h6>
+                )}
             </div>
         </div>
     )
