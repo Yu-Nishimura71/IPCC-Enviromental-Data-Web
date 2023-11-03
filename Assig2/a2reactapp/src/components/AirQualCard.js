@@ -20,10 +20,27 @@ const AirQualCard = ({ cityData, airData }) => {
                     <p>{cityData.regionName}</p>
                     <table className="table table-striped">
                         <thead>
-                            <th>Avg</th>
-                            <th>Max</th>
-                            <th>Min</th>
+                            <tr>
+                                <th></th>
+                                <th>Avg</th>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </tr>
                         </thead>
+                        <tbody>
+                            <tr>
+                                <td>PM10</td>
+                                <td>{airData[0].countryPM10Avg}</td>
+                                <td>{airData[0].countryPM10Min}</td>
+                                <td>{airData[0].countryPM10Max}</td>
+                            </tr>
+                            <tr>
+                                <td>PM25</td>
+                                <td>{airData[0].countryPM25Avg}</td>
+                                <td>{airData[0].countryPM25Min}</td>
+                                <td>{airData[0].countryPM25Max}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 
@@ -34,6 +51,7 @@ const AirQualCard = ({ cityData, airData }) => {
                     <thead>
                         <tr>
                             <th>Year</th>
+                            <th>PM summary</th>
                             <th>Annual Mean</th>
                             <th>Temporal Coverage 1</th>
                             <th>Annual Mean PM10</th>
@@ -48,6 +66,32 @@ const AirQualCard = ({ cityData, airData }) => {
                         {airData.map((data, index) => (
                             <tr key={index}>
                                 <td>{data.year}</td>
+                                <td>
+                                    <table className="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Avg</th>
+                                                <th>Min</th>
+                                                <th>Max</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>PM10</td>
+                                                <td>{data.countryPM10Avg}</td>
+                                                <td>{data.countryPM10Min}</td>
+                                                <td>{data.countryPM10Max}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PM25</td>
+                                                <td>{data.countryPM25Avg}</td>
+                                                <td>{data.countryPM25Min}</td>
+                                                <td>{data.countryPM25Max}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
                                 <td>{data.theAirQualityData.annualMean}</td>
                                 <td>{data.theAirQualityData.temporalCoverage1}</td>
                                 <td>{data.theAirQualityData.annualMeanPm10}</td>
@@ -73,7 +117,6 @@ const AirQualCard = ({ cityData, airData }) => {
                                         </tbody>
                                     </table>
                                 </td>
-                                <td>{}</td>
                             </tr>
                         ))}
                     </tbody>
