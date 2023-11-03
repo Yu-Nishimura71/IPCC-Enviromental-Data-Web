@@ -4,7 +4,7 @@ import CityCard from "./CityCard";
 
 function CityList() {
 
-    let params = useParams()
+    let params = useParams();
 
     const [cityData, setCityData] = useState([]);
     const [countryId, setCountryId] = useState(params.countryId);
@@ -13,7 +13,9 @@ function CityList() {
     useEffect(() => {
         fetch(`http://localhost:5256/api/C_Cities/${countryId}?${searchText}`)
             .then(response => response.json())
-            .then(data => setCityData(data))
+            .then(data => {
+                setCityData(data);
+            })
             .catch(err => {
                 console.log(err);
             });

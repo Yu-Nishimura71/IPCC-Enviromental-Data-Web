@@ -1,5 +1,6 @@
 
 const AirQualCard = ({ cityData, airData }) => {
+    console.log(airData);
     return (
         <div className="card">
             <div className="card-body">
@@ -21,7 +22,7 @@ const AirQualCard = ({ cityData, airData }) => {
                     <tbody>
                         {airData.map((data, index) => (
                             <tr key={index}>
-                                <td>{airData.year}</td>
+                                <td>{data.year}</td>
                             </tr>
                         ))}
                     </tbody>

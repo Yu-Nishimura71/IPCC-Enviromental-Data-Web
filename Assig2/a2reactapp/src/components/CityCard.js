@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 
-const CityCard = ({cityData}) => {
+const CityCard = ({ cityData }) => {
+    console.log(cityData)
+    console.log(Array.isArray(cityData))
     return (
         <div className="card">
             <div className="card-body">
-                <div className="table table-striped">
+                <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>CityName</th>
@@ -13,15 +15,20 @@ const CityCard = ({cityData}) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {cityData.map((data, index) => (
+                        {Array.isArray(cityData) && cityData.map((data, index) => (
                             <tr key={index}>
-                                <td>{data.cityName}</td>
+                                <td>
+                                    <Link to={"/AirQualityData/" + data.cityID}>
+                                        {data.cityName}
+                                    </Link>
+                                </td>
                                 <td>{data.airQualityYearRange[0]} - {data.airQualityYearRange[1]}</td>
                                 <td>{data.recordCount}</td>
+                                <td>{data.cityID}</td>
                             </tr>
                         ))}
                     </tbody>
-                </div>
+                </table>
             </div>
         </div>
     )

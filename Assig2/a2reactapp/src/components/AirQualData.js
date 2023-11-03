@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import CityCard from "./CityCard";
+import AirQualCard from "./AirQualCard";
 
 function AirQualData() {
 
     let params = useParams();
 
-    const [cityId, setCityId] = useState(params.cityId);
-    const [cityData, setCityData] = useState({ theCityDetail: {} })
+    const [cityID, setCityId] = useState(params.cityID);
+    const [cityAirData, setCityData] = useState({ theCityDetail: {} })
     const [airData, setAirData] = useState({ theCityAirQualityData: [] });
 
     useEffect(() => {
-        fetch(`http://localhost:5256/api/C_Cities/GetAirQualityData/${cityId}`)
+        fetch(`http://localhost:5256/api/C_Cities/GetAirQualityData/${cityID}`)
             .then(response => response.json())
             .then(data => {
                 setCityData(data.theCityDetail)
@@ -24,9 +24,9 @@ function AirQualData() {
 
     return (
         <div>
-            <CityCard
+            <AirQualCard
                 airData={airData}
-                cityData={cityData}
+                cityData={cityAirData}
             />
         </div>
     )
