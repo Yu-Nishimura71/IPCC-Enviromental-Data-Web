@@ -18,30 +18,6 @@ const AirQualCard = ({ cityData, airData }) => {
                         <h6 className="" style={{ padding: "5px 10px", borderRadius: "5px" }}>{cityData.countryName} ({cityData.iso3})</h6>
                     )}
                     <p>{cityData.regionName}</p>
-                    <table className="table table-striped">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Avg</th>
-                                <th>Min</th>
-                                <th>Max</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>PM10</td>
-                                <td>{airData[0].countryPM10Avg}</td>
-                                <td>{airData[0].countryPM10Min}</td>
-                                <td>{airData[0].countryPM10Max}</td>
-                            </tr>
-                            <tr>
-                                <td>PM25</td>
-                                <td>{airData[0].countryPM25Avg}</td>
-                                <td>{airData[0].countryPM25Min}</td>
-                                <td>{airData[0].countryPM25Max}</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
                 
             </div>
