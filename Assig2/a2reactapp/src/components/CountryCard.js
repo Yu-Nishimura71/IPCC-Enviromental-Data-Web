@@ -20,7 +20,7 @@ const CountryCard = ({ countryId, regionData, countryName, iso3, imageUrl, cityC
                     {cityCount === 0 ? (
                         <p className="col">{cityCount + " cities"}</p>
                     ) : (
-                            <Link to={"/City/" + countryId} state={{ RegionId: regionData.regionId }} className="col">
+                        <Link to={"/City/" + countryId} state={{ RegionId: regionData.regionId, RegionData: regionData, CountryId: countryId, CountryName: countryName, Iso3: iso3, ImageUrl: imageUrl, CityCount: cityCount }} className="col">
                                 <p>{cityCount + " cities"}</p>
                             </Link>
                     )}

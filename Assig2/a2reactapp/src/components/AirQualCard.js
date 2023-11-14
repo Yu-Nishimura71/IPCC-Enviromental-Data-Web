@@ -1,5 +1,11 @@
+import { Link, useLocation } from "react-router-dom";
+import Country from "../routes/Country";
 
 const AirQualCard = ({ cityData, airData }) => {
+
+    const location = useLocation();
+    const { RegionId, RegionData, CountryId, CountryName, Iso3, ImageUrl, CityCount } = location.state;
+
     console.log(airData);
     if (!Array.isArray(airData)) {
         return <div>Loading or error...</div>
@@ -18,6 +24,9 @@ const AirQualCard = ({ cityData, airData }) => {
                         <h6 className="" style={{ padding: "5px 10px", borderRadius: "5px" }}>{cityData.countryName} ({cityData.iso3})</h6>
                     )}
                     <p>{cityData.regionName}</p>
+                    <Link to={"/City/" + CountryId} state={{ RegionId: RegionId, RegionData: RegionData, CountryId: CountryId, CountryName: CountryName, Iso3: Iso3, ImageUrl: ImageUrl, CityCount: CityCount }}>
+                        Back to City List
+                    </Link>
                 </div>
                 
             </div>

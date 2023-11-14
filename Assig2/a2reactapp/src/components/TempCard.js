@@ -8,11 +8,9 @@ const TempCard = ({ maxYear, minYear, rawTemperatureData = [] }) => {
 
     return (
         <div className="card">
-            <Link to={"/Country/" + RegionId}>Country List</Link>
-            <h2 className="card-header">
-                Temperature Data from {minYear} to {maxYear}
-            </h2>
+            <Link to={"/Country/" + RegionId}>Back to Country List</Link>
             <div className="card-body">
+                <h2>Temperature Data from {minYear} to {maxYear}</h2>
                 <table className="table table-striped">
                     <thead>
                         <tr>
