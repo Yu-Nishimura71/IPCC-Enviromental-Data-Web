@@ -67,7 +67,7 @@ function CountryList() {
                         <CountryCard
                             key={country.countryId}
                             countryId={country.countryId}
-                            regionId={country.regionId}
+                            regionData={regionData}
                             countryName={country.countryName}
                             iso3={country.iso3}
                             imageUrl={country.imageUrl}

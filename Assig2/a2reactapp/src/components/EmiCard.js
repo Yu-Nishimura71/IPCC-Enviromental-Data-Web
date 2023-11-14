@@ -1,6 +1,12 @@
-const EmiCard = ({ emiData =[], emiEleData =[], selectElement }) => {
+import { Link, useLocation } from "react-router-dom";
+
+const EmiCard = ({ emiData = [], emiEleData = [], selectElement }) => {
+    const location = useLocation();
+    const { RegionId } = location.state;
+
     return(
         <div className="card">
+            <Link to={"/Country/" + RegionId} className="col">Back to Country</Link>
             <div className="card-body">
                 <h4>Emission Data</h4>
                 <table className="table table-striped">

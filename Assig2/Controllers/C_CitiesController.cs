@@ -121,10 +121,10 @@ namespace Assig2.Controllers
                  .Select(group => new
                  {
                      Year = group.Key,
-                     CountryPM10Avg = group.Select(td2 => td2.AnnualMean).DefaultIfEmpty().Average(),
+                     CountryPM10Avg = Math.Round(group.Select(td2 => td2.AnnualMean).DefaultIfEmpty().Average() ?? 0, 1),
                      CountryPM10Min = group.Select(td2 => td2.AnnualMean).DefaultIfEmpty().Min(),
                      CountryPM10Max = group.Select(td2 => td2.AnnualMean).DefaultIfEmpty().Max(),
-                     CountryPM25Avg = group.Select(td2 => td2.AnnualMeanUgm3).DefaultIfEmpty().Average(),
+                     CountryPM25Avg = Math.Round(group.Select(td2 => td2.AnnualMeanUgm3).DefaultIfEmpty().Average() ?? 0, 1),
                      CountryPM25Min = group.Select(td2 => td2.AnnualMeanUgm3).DefaultIfEmpty().Min(),
                      CountryPM25Max = group.Select(td2 => td2.AnnualMeanUgm3).DefaultIfEmpty().Max()
 

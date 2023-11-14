@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const CityCard = ({ cityData }) => {
+    const location = useLocation();
+    const { RegionId } = location.state;
+
     console.log(cityData)
     console.log(Array.isArray(cityData))
     return (
         <div className="card">
+            <Link to={"/Country/" + RegionId}>Country List</Link>
             <div className="card-body">
                 <table className="table table-striped">
                     <thead>

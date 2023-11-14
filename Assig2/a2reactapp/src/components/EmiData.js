@@ -64,7 +64,6 @@ function EmiData() {
                 <div className="col text-left">
                     <button type="button" className="btn btn-primary" onClick={searchQuery}>Search</button>
                 </div>
-                <Link to={"/Country/" + countryId} className="col">Back to Country</Link>
             </div>
             {selectedElement && (
                 <div>

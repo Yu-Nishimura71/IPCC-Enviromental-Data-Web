@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import Country from "../routes/Country";
 
 const TempCard = ({ maxYear, minYear, rawTemperatureData = [] }) => {
+    const location = useLocation();
+    const { RegionId } = location.state;
+
+
     return (
         <div className="card">
-            <Link to="/Country/">Country List</Link>
+            <Link to={"/Country/" + RegionId}>Country List</Link>
             <h2 className="card-header">
                 Temperature Data from {minYear} to {maxYear}
             </h2>

@@ -3,7 +3,7 @@ import TempIcon from "../tempIcon.svg";
 import EmiIcon from "../emiIcon.svg";
 import XIcon from "../Xsymbol.svg";
 
-const CountryCard = ({ countryId, regionId, countryName, iso3, imageUrl, cityCount, emissionDataYearRange, temperatureDataYearRange }) => {
+const CountryCard = ({ countryId, regionData, countryName, iso3, imageUrl, cityCount, emissionDataYearRange, temperatureDataYearRange }) => {
     return (
         <div className="col-6 col-md-4 mb-1">
             <div className="card container">
@@ -20,7 +20,7 @@ const CountryCard = ({ countryId, regionId, countryName, iso3, imageUrl, cityCou
                     {cityCount === 0 ? (
                         <p className="col">{cityCount + " cities"}</p>
                     ) : (
-                            <Link to={"/City/" + countryId} className="col">
+                            <Link to={"/City/" + countryId} state={{ RegionId: regionData.regionId }} className="col">
                                 <p>{cityCount + " cities"}</p>
                             </Link>
                     )}
@@ -29,7 +29,7 @@ const CountryCard = ({ countryId, regionId, countryName, iso3, imageUrl, cityCou
                     {temperatureDataYearRange[0] === 0 && temperatureDataYearRange[1] === 0 ? (
                         <img src={XIcon} className="App-logo col" alt="No Temperature Data" style={{ height: "30px", weight: "30px" }} />
                     ) : (
-                        <Link to={"/CountryTemp/" + countryId} className="col">
+                        <Link to={"/CountryTemp/" + countryId} state={{ RegionId: regionData.regionId }} className="col">
                             <img src={TempIcon} className="App-logo" alt="Temperature Icon" style={{ height: "30px", weight: "30px" }} />
                         </Link>
                     )}
@@ -37,7 +37,7 @@ const CountryCard = ({ countryId, regionId, countryName, iso3, imageUrl, cityCou
                     {emissionDataYearRange[0] === 0 && emissionDataYearRange[1] === 0 ? (
                         <img src={XIcon} className="App-logo col" alt="No Emission Data" style={{ height: "30px", weight: "30px" }} />
                     ) : (
-                        <Link to={"/CountryEmi/" + countryId} className="col">
+                        <Link to={"/CountryEmi/" + countryId} state={{ RegionId: regionData.regionId }} className="col">
                             <img src={EmiIcon} className="App-logo" alt="Emission Icon" style={{ height: "30px", weight: "30px" }} />
                         </Link>
                     )}
